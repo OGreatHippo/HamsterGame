@@ -23,45 +23,7 @@ public class Clicker : MonoBehaviour
 
     private void Update()
     {
-        if(gameObject.GetComponent<SpriteRenderer>().color == Color.green)
-        {
-            targetTime -= Time.deltaTime;
-
-            if(targetTime <= 0.0f)
-            {
-                endTimer();
-            }
-            else
-            {
-                if (clickAmount >= 50)
-                {
-                    multiplier = 2f;
-
-                    background.GetComponent<SpriteRenderer>().color = Color.magenta;
-
-                    if (clickAmount >= 100)
-                    {
-                        multiplier = 3f;
-
-                        background.GetComponent<SpriteRenderer>().color = Color.yellow;
-
-                        if (clickAmount >= 200)
-                        {
-                            multiplier = 4f;
-
-                            background.GetComponent<SpriteRenderer>().color = Color.cyan;
-
-                            if (clickAmount >= 300)
-                            {
-                                multiplier = 5f;
-
-                                background.GetComponent<SpriteRenderer>().color = Color.grey;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        updateMultiplier();
     }
 
     private void OnMouseDown()
@@ -76,29 +38,75 @@ public class Clicker : MonoBehaviour
         return tapValue;
     }
 
+    public float getMultiplier()
+    {
+        return multiplier;
+    }
+
     private IEnumerator clickAnimation()
     {
         currency.SetCurrency(clickingValue() * multiplier);
 
         clickAmount += 1f;
 
-        gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+        gameObject.transform.localScale = gameObject.transform.localScale * 1.5f;
 
         yield return new WaitForSeconds(0.1f);
 
-        gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+        gameObject.transform.localScale = gameObject.transform.localScale / 1.5f;
 
         targetTime = 3f;
     }
 
     private void endTimer()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-
-        background.GetComponent<SpriteRenderer>().color = Color.white;
+        background.GetComponent<SpriteRenderer>().color = Color.blue;
 
         multiplier = 1f;
 
         clickAmount = 0f;
+    }
+
+    private void updateMultiplier()
+    {
+        if (clickAmount >= 1)
+        {
+            targetTime -= Time.deltaTime;
+
+            if (targetTime <= 0.0f)
+            {
+                endTimer();
+            }
+            else
+            {
+                if (clickAmount >= 50)
+                {
+                    multiplier = 2f;
+
+                    background.GetComponent<SpriteRenderer>().color = Color.cyan;
+
+                    if (clickAmount >= 100)
+                    {
+                        multiplier = 3f;
+
+                        background.GetComponent<SpriteRenderer>().color = Color.green;
+
+                        if (clickAmount >= 200)
+                        {
+                            multiplier = 4f;
+
+                            background.GetComponent<SpriteRenderer>().color = Color.yellow;
+
+                            if (clickAmount >= 300)
+                            {
+                                multiplier = 5f;
+
+                                background.GetComponent<SpriteRenderer>().color = Color.magenta;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
