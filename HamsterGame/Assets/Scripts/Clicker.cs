@@ -12,6 +12,8 @@ public class Clicker : MonoBehaviour
 
     private float clickAmount;
 
+    private float tapValue = 1f;
+
     private float multiplier = 1f;
 
     private void Start()
@@ -33,11 +35,13 @@ public class Clicker : MonoBehaviour
 
     private float clickingValue()
     {
-        float tapValue = 1f;
-
         return tapValue;
     }
 
+    public float SetClickValue(float increase)
+    {
+        return tapValue += increase;
+    }
     public float getMultiplier()
     {
         return multiplier;

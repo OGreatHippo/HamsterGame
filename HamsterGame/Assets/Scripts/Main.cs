@@ -10,13 +10,15 @@ public class Main : MonoBehaviour
 
     private Clicker clicker;
 
-    private Animator multiplierAnimation;
-
     [SerializeField] private GameObject upgradeMenu;
 
     private float currencyValue;
-    private float targetTime;
 
+    [SerializeField] private float passiveIncome;
+
+    [SerializeField] private float targetTime = 1f;
+
+    [SerializeField] private float passiveMultiplier = 1f;
 
     private void Start()
     {
@@ -25,8 +27,6 @@ public class Main : MonoBehaviour
         clicker = GameObject.Find("ClickSprite").GetComponent<Clicker>();
 
         multiplierText = currencyText.transform.Find("multiplierText").gameObject;
-
-        multiplierAnimation = multiplierText.GetComponent<Animator>();
     }
 
     private void Update()
@@ -35,25 +35,27 @@ public class Main : MonoBehaviour
 
         multiplierText.GetComponent<Text>().text = "x" + clicker.getMultiplier();
 
-        if (clicker.getMultiplier() > 1f)
-        {
-            animateMultiplier();
-        }
-    }
-
-    private void animateMultiplier()
-    {
-        targetTime -= Time.deltaTime;
-
-        if (targetTime <= 0.0f)
-        {
-            multiplierAnimation.Play("multiplierAnim");
-        }
+        addIncome();
     }
 
     public float SetCurrency(float increase)
     {
         return currencyValue += increase;
+    }
+
+    public float GetCurrency()
+    {
+        return currencyValue;
+    }
+
+    public float SetPassiveIncome(float increase)
+    {
+        return passiveIncome += increase;
+    }
+
+    public float SetMultiplierValue(float increase)
+    {
+        return passiveMultiplier += increase;
     }
 
     public void openUpgradeMenu()
@@ -66,8 +68,15 @@ public class Main : MonoBehaviour
         }
     }
 
-    public void buyUpgrade(int id, float cost, int amount)
+    private void addIncome()
     {
+        targetTime -= Time.deltaTime;
 
+        if (targetTime <= 0.0f)
+        {
+            currencyValue += passiveIncome * passiveMultiplier;
+
+            targetTime = 1f;
+        }
     }
 }
