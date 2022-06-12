@@ -6,7 +6,7 @@ public class Clicker : MonoBehaviour
 {
     private Main currency;
 
-    private GameObject background;
+    private Animator multiplierText;
 
     private float targetTime;
 
@@ -20,7 +20,7 @@ public class Clicker : MonoBehaviour
     {
         currency = GameObject.Find("GameHandler").GetComponent<Main>();
 
-        background = GameObject.Find("Background");
+        multiplierText = GameObject.Find("multiplierText").GetComponent<Animator>();
     }
 
     private void Update()
@@ -64,7 +64,7 @@ public class Clicker : MonoBehaviour
 
     private void endTimer()
     {
-        background.GetComponent<SpriteRenderer>().color = Color.blue;
+        multiplierText.SetBool("animate", false);
 
         multiplier = 1f;
 
@@ -87,25 +87,19 @@ public class Clicker : MonoBehaviour
                 {
                     multiplier = 2f;
 
-                    background.GetComponent<SpriteRenderer>().color = Color.cyan;
+                    multiplierText.SetBool("animate", true);
 
                     if (clickAmount >= 100)
                     {
                         multiplier = 3f;
 
-                        background.GetComponent<SpriteRenderer>().color = Color.green;
-
                         if (clickAmount >= 200)
                         {
                             multiplier = 4f;
 
-                            background.GetComponent<SpriteRenderer>().color = Color.yellow;
-
                             if (clickAmount >= 300)
                             {
                                 multiplier = 5f;
-
-                                background.GetComponent<SpriteRenderer>().color = Color.magenta;
                             }
                         }
                     }
