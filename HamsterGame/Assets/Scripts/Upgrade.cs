@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class Upgrade : MonoBehaviour
 {
@@ -11,30 +13,17 @@ public class Upgrade : MonoBehaviour
 
     [SerializeField] private int ID;
 
-    [SerializeField] private int tier;
-
     [SerializeField] private float price;
 
-    [SerializeField] private int amount;
+    private int amount;
 
-    private int currentAmount;
+    [SerializeField] private GameObject buttonText;
 
-    [SerializeField] private Text title;
+    private TextMeshProUGUI buyText;
 
-    [SerializeField] private Text description;
+    [SerializeField] private GameObject amountObj;
 
-    [SerializeField] private Text buyText;
-
-    [SerializeField] private Text amountText;
-
-    [SerializeField] private string titleText;
-
-    [SerializeField] private string descriptionText;
-
-    [SerializeField] private GameObject upgradeButton;
-
-    [SerializeField] private GameObject completeImage;
-
+    private TextMeshProUGUI amountText;
 
     private void Start()
     {
@@ -42,31 +31,24 @@ public class Upgrade : MonoBehaviour
 
         clicker = GameObject.Find("ClickSprite").GetComponent<Clicker>();
 
-        description.text = descriptionText;
+        amountText = amountObj.GetComponent<TextMeshProUGUI>();
 
-        title.text = titleText;
+        buyText = buttonText.GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
     {
         if(main.GetCurrency() >= price)
         {
-            upgradeButton.GetComponent<Button>().interactable = true;
+            gameObject.GetComponent<Button>().interactable = true;
         }
         else
         {
-            upgradeButton.GetComponent<Button>().interactable = false;
+            gameObject.GetComponent<Button>().interactable = false;
         }
 
-        if(currentAmount == amount)
-        {
-            upgradeButton.SetActive(false);
-
-            completeImage.SetActive(true);
-        }
-
-        amountText.text = currentAmount + " / " + amount;
         buyText.text = price + " Watts";
+        amountText.text = amount.ToString();
     }
 
     public void buyUpgrade()
@@ -75,26 +57,33 @@ public class Upgrade : MonoBehaviour
 
         addFunction();
 
-        currentAmount += 1;
+        amount += 1;
 
-        price += price * 2;
+        price += price * 0.2f;
+
+        price = Mathf.Round(price * 100f) / 100f;
     }
 
     private void addFunction()
     {
         if(ID == 1)
         {
-            main.SetPassiveIncome(1f);
+            clicker.SetClickValue(1f);
         }
 
         if (ID == 2)
         {
-            main.SetMultiplierValue(0.05f);
+             main.SetPassiveIncome(0.1f);
         }
 
         if (ID == 3)
         {
-            clicker.SetClickValue(1f);
+            main.SetPassiveIncome(1f);
+        }
+
+        if (ID == 4)
+        {
+            main.SetPassiveIncome(10f);
         }
     }
 }

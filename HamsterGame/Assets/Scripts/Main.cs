@@ -31,6 +31,8 @@ public class Main : MonoBehaviour
 
     private void Update()
     {
+        currencyValue = Mathf.Round(currencyValue * 100f) / 100f;
+
         currencyText.GetComponent<Text>().text = currencyValue + " Watts Generated";
 
         multiplierText.GetComponent<Text>().text = "x" + clicker.getMultiplier();
