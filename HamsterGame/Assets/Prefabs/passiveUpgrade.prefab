@@ -362,9 +362,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca14b64dcbc7184c9a1c780622fce86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 1
-  price: 0
-  buttonText: {fileID: 0}
+  ID: 0
+  titleText: {fileID: 8809538873431253005}
+  descriptionText: {fileID: 8120068415032563961}
+  amountText: {fileID: 3655385358070585881}
+  priceText: {fileID: 2809001760692779396}
 --- !u!114 &4600429072539903712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,14 +406,14 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2277247070999576158}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2046206597821447011}
         m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
-        m_MethodName: buyUpgrade
+        m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

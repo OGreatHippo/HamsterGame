@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637881519333861793
-    m_Hash: 2951611912
+      ticks: 637958729689760131
+    m_Hash: 1649160317
   m_LockFileStatus:
     m_FilePath: D:/Projects/HamsterGame/HamsterGame/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637881519486745269
-    m_Hash: 1756831560
+      ticks: 637958729693170947
+    m_Hash: 2549210245
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -113,6 +113,7 @@ m_ResolvedPackages:
     - 5.1.1
     - 5.2.0
     - 5.2.1
+    - 5.2.3
     - 6.0.0-pre.1
     - 6.0.0-pre.2
     - 6.0.1
@@ -128,11 +129,14 @@ m_ResolvedPackages:
     - 7.0.3
     - 7.0.4
     - 7.0.5
+    - 7.0.6
     - 8.0.0-pre.3
     - 8.0.0-pre.4
     - 8.0.0
     - 8.0.1
+    - 8.0.2
     - 9.0.0-pre.1
+    - 9.0.0-pre.3
     compatible:
     - 6.0.5
     - 6.0.7
@@ -344,10 +348,13 @@ m_ResolvedPackages:
     - 6.0.1
     - 6.0.2
     - 6.0.3
+    - 6.0.4
     - 7.0.0-pre.3
     - 7.0.0-pre.4
     - 7.0.0
+    - 7.0.1
     - 8.0.0-pre.1
+    - 8.0.0-pre.3
     compatible:
     - 5.0.4
     - 5.0.6
@@ -549,6 +556,7 @@ m_ResolvedPackages:
     - 7.0.2
     - 7.0.3
     - 7.0.4
+    - 7.0.5
     - 8.0.0-pre.4
     - 8.0.0-pre.5
     - 8.0.0
@@ -670,6 +678,115 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 1.0.0
     nextVersion: 
+- packageId: com.unity.ads@3.7.5
+  testable: 0
+  isDirectDependency: 1
+  version: 3.7.5
+  source: 1
+  resolvedPath: D:\Projects\HamsterGame\HamsterGame\Library\PackageCache\com.unity.ads@3.7.5
+  assetPath: Packages/com.unity.ads
+  name: com.unity.ads
+  displayName: Advertisement
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: Unity Ads is a video ad network for iOS and Android that allows you
+    to quickly and effectively monetize your games.
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 0.0.3
+    - 0.0.4
+    - 0.0.5
+    - 0.0.6
+    - 0.0.7
+    - 0.0.8
+    - 0.0.10
+    - 0.0.11
+    - 0.0.12
+    - 0.0.13
+    - 0.0.14
+    - 0.0.15
+    - 0.0.16
+    - 2.0.0
+    - 2.0.3
+    - 2.0.4
+    - 2.0.7
+    - 2.0.8
+    - 2.3.1
+    - 2.3.2
+    - 3.0.1
+    - 3.0.2
+    - 3.0.3
+    - 3.1.1
+    - 3.2.0
+    - 3.3.0
+    - 3.3.1
+    - 3.4.0
+    - 3.4.1
+    - 3.4.2
+    - 3.4.4
+    - 3.4.5
+    - 3.4.7
+    - 3.4.9
+    - 3.5.0
+    - 3.5.2
+    - 3.6.1
+    - 3.7.0
+    - 3.7.1
+    - 3.7.3
+    - 3.7.5
+    - 4.0.0
+    - 4.0.1
+    - 4.1.0
+    - 4.2.1
+    compatible:
+    - 3.7.5
+    - 4.0.0
+    - 4.0.1
+    - 4.1.0
+    - 4.2.1
+    verified: 3.7.5
+  dependencies:
+  - name: com.unity.ugui
+    version: 1.0.0
+  resolvedDependencies:
+  - name: com.unity.ugui
+    version: 1.0.0
+  - name: com.unity.modules.ui
+    version: 1.0.0
+  - name: com.unity.modules.imgui
+    version: 1.0.0
+  keywords:
+  - ads
+  - unity
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hasRegistry: 1
+  hideInEditor: 1
+  entitlements:
+    isAllowed: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637635162230000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.ads.git
+    revision: 0e92fa56fc4e4cd1fa305e76a911acdae6386b96
+    path: 
+  unityLifecycle:
+    version: 3.7.5
+    nextVersion: 
 - packageId: com.unity.collab-proxy@1.9.0
   testable: 0
   isDirectDependency: 1
@@ -729,6 +846,7 @@ m_ResolvedPackages:
     - 1.14.15
     - 1.14.16
     - 1.14.17
+    - 1.14.18
     - 1.15.1
     - 1.15.4
     - 1.15.7
@@ -738,6 +856,10 @@ m_ResolvedPackages:
     - 1.15.15
     - 1.15.16
     - 1.15.17
+    - 1.15.18
+    - 1.17.0
+    - 1.17.1
+    - 1.17.2
     - 2.0.0-preview.6
     - 2.0.0-preview.8
     - 2.0.0-preview.15
@@ -763,6 +885,7 @@ m_ResolvedPackages:
     - 1.14.15
     - 1.14.16
     - 1.14.17
+    - 1.14.18
     - 1.15.1
     - 1.15.4
     - 1.15.7
@@ -772,6 +895,10 @@ m_ResolvedPackages:
     - 1.15.15
     - 1.15.16
     - 1.15.17
+    - 1.15.18
+    - 1.17.0
+    - 1.17.1
+    - 1.17.2
     - 2.0.0-preview.6
     - 2.0.0-preview.8
     - 2.0.0-preview.15
@@ -874,6 +1001,7 @@ m_ResolvedPackages:
     - 3.0.12
     - 3.0.13
     - 3.0.14
+    - 3.0.15
     compatible:
     - 3.0.7
     - 3.0.9
@@ -881,7 +1009,8 @@ m_ResolvedPackages:
     - 3.0.12
     - 3.0.13
     - 3.0.14
-    verified: 3.0.14
+    - 3.0.15
+    verified: 3.0.15
   dependencies:
   - name: com.unity.ext.nunit
     version: 1.0.6
@@ -952,12 +1081,14 @@ m_ResolvedPackages:
     - 2.0.12
     - 2.0.14
     - 2.0.15
+    - 2.0.16
     compatible:
     - 2.0.11
     - 2.0.12
     - 2.0.14
     - 2.0.15
-    verified: 2.0.15
+    - 2.0.16
+    verified: 2.0.16
   dependencies:
   - name: com.unity.test-framework
     version: 1.1.9
@@ -1059,6 +1190,172 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 1.2.4
     nextVersion: 
+- packageId: com.unity.purchasing@4.4.0
+  testable: 0
+  isDirectDependency: 1
+  version: 4.4.0
+  source: 1
+  resolvedPath: D:\Projects\HamsterGame\HamsterGame\Library\PackageCache\com.unity.purchasing@4.4.0
+  assetPath: Packages/com.unity.purchasing
+  name: com.unity.purchasing
+  displayName: In App Purchasing
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: "IMPORTANT UPGRADE NOTES:\n\nIf updating from Unity IAP (com.unity.purchasing
+    + the Asset Store plugin) versions 2.x to version 3.x, complete the following
+    actions in order to resolve compilation errors:\n 1. Move IAPProductCatalog.json
+    and BillingMode.json\n\tFROM: Assets/Plugins/UnityPurchasing/Resources/\n\tTO:
+    Assets/Resources/.\n 2. Move AppleTangle.cs and GooglePlayTangle.cs\n\tFROM:
+    Assets/Plugins/UnityPurchasing/generated\n\tTO: Assets/Scripts/UnityPurchasing/generated.\n
+    3. Remove all remaining Asset Store plugin folders and files in Assets/Plugins/UnityPurchasing
+    from your project.\n\nPACKAGE DESCRIPTION:\n\nWith Unity IAP, setting up in-app
+    purchases for your game across multiple app stores has never been easier.\n\nThis
+    package provides:\n\n \u25AA One common API to access all stores for free so
+    you can fully understand and optimize your in-game economy\n \u25AA Automatic
+    coupling with Unity Analytics to enable monitoring and decision-making based
+    on trends in your revenue and purchase data across multiple platforms\n \u25AA
+    Support for iOS, Mac, tvOS, Google Play, Windows, and Amazon app stores(*).\n
+    \u25AA Support to work with the Unity Distribution Portal to synchronize catalogs
+    and transactions with other app stores\n \u25AA Client-side receipt validation
+    for Apple App Store and Google Play\n\nAfter installing this package, open the
+    Services Window to enable In-App Purchasing to use these features."
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 0.0.3
+    - 0.0.4
+    - 0.0.5
+    - 0.0.6
+    - 0.0.7
+    - 0.0.8
+    - 0.0.9
+    - 0.0.10
+    - 0.0.11
+    - 0.0.12
+    - 0.0.13
+    - 0.0.14
+    - 0.0.15
+    - 0.0.16
+    - 0.0.17
+    - 0.0.18
+    - 0.0.19
+    - 2.0.0
+    - 2.0.1
+    - 2.0.3
+    - 2.0.5
+    - 2.0.6
+    - 2.1.0
+    - 2.1.1
+    - 2.2.0
+    - 2.2.1
+    - 2.2.2
+    - 3.0.0-pre.3
+    - 3.0.0-pre.4
+    - 3.0.0-pre.5
+    - 3.0.0-pre.6
+    - 3.0.1
+    - 3.0.2
+    - 3.1.0
+    - 3.2.1
+    - 3.2.2
+    - 3.2.3
+    - 4.0.0
+    - 4.0.3
+    - 4.1.0
+    - 4.1.1
+    - 4.1.2
+    - 4.1.3
+    - 4.1.4
+    - 4.1.5
+    - 4.2.0-pre.1
+    - 4.2.0-pre.2
+    - 4.2.1
+    - 4.3.0
+    - 4.4.0
+    compatible:
+    - 3.2.3
+    - 4.0.0
+    - 4.0.3
+    - 4.1.0
+    - 4.1.1
+    - 4.1.2
+    - 4.1.3
+    - 4.1.4
+    - 4.1.5
+    - 4.2.0-pre.1
+    - 4.2.0-pre.2
+    - 4.2.1
+    - 4.3.0
+    - 4.4.0
+    verified: 3.2.3
+  dependencies:
+  - name: com.unity.ugui
+    version: 1.0.0
+  - name: com.unity.modules.unityanalytics
+    version: 1.0.0
+  - name: com.unity.modules.unitywebrequest
+    version: 1.0.0
+  - name: com.unity.modules.jsonserialize
+    version: 1.0.0
+  - name: com.unity.modules.androidjni
+    version: 1.0.0
+  - name: com.unity.services.core
+    version: 1.3.1
+  - name: com.unity.services.analytics
+    version: 4.0.1
+  resolvedDependencies:
+  - name: com.unity.ugui
+    version: 1.0.0
+  - name: com.unity.modules.ui
+    version: 1.0.0
+  - name: com.unity.modules.imgui
+    version: 1.0.0
+  - name: com.unity.modules.unityanalytics
+    version: 1.0.0
+  - name: com.unity.modules.unitywebrequest
+    version: 1.0.0
+  - name: com.unity.modules.jsonserialize
+    version: 1.0.0
+  - name: com.unity.modules.androidjni
+    version: 1.0.0
+  - name: com.unity.services.core
+    version: 1.4.0
+  - name: com.unity.nuget.newtonsoft-json
+    version: 3.0.2
+  - name: com.unity.services.analytics
+    version: 4.0.1
+  keywords:
+  - purchasing
+  - iap
+  - unity
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hasRegistry: 1
+  hideInEditor: 0
+  entitlements:
+    isAllowed: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637946151890000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.purchasing.git
+    revision: 94c5a447a90fc84222a89d4cffe216b3cfba7ef6
+    path: 
+  unityLifecycle:
+    version: 3.2.3
+    nextVersion: 
 - packageId: com.unity.test-framework@1.1.29
   testable: 0
   isDirectDependency: 1
@@ -1112,6 +1409,7 @@ m_ResolvedPackages:
     - 1.1.29
     - 1.1.30
     - 1.1.31
+    - 1.1.33
     - 2.0.1-exp.1
     - 2.0.1-pre.12
     - 2.0.1-pre.18
@@ -1119,10 +1417,11 @@ m_ResolvedPackages:
     - 1.1.29
     - 1.1.30
     - 1.1.31
+    - 1.1.33
     - 2.0.1-exp.1
     - 2.0.1-pre.12
     - 2.0.1-pre.18
-    verified: 1.1.31
+    verified: 1.1.33
   dependencies:
   - name: com.unity.ext.nunit
     version: 1.0.6
@@ -3418,8 +3717,12 @@ m_ResolvedPackages:
     - 1.0.0
     - 1.0.5
     - 1.0.6
+    - 2.0.2
+    - 2.0.3
     compatible:
     - 1.0.6
+    - 2.0.2
+    - 2.0.3
     verified: 1.0.6
   dependencies: []
   resolvedDependencies: []
@@ -3450,6 +3753,105 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 1.0.6
     nextVersion: 
+- packageId: com.unity.services.analytics@4.0.1
+  testable: 0
+  isDirectDependency: 0
+  version: 4.0.1
+  source: 1
+  resolvedPath: D:\Projects\HamsterGame\HamsterGame\Library\PackageCache\com.unity.services.analytics@4.0.1
+  assetPath: Packages/com.unity.services.analytics
+  name: com.unity.services.analytics
+  displayName: Analytics
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: The Unity Analytics package automatically collects core events and
+    user properties when someone uses your game or application, and enables you to
+    track specific in-game actions your user performs by defining custom events.
+    The data collected from this package is surfaced in the Unity dashboard where
+    you can use it to gather user insights, segment your player base and make informed
+    decisions around the optimization of your game.
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 1.0.3
+    - 1.0.4
+    - 1.0.5
+    - 2.0.7-pre.4
+    - 2.0.7-pre.6
+    - 2.0.7-pre.7
+    - 3.0.0-pre.2
+    - 3.0.0-pre.3
+    - 3.0.0-pre.4
+    - 4.0.0-pre.2
+    - 4.0.0-pre.3
+    - 4.0.0
+    - 4.0.1
+    - 4.1.0
+    compatible:
+    - 1.0.3
+    - 1.0.4
+    - 1.0.5
+    - 2.0.7-pre.4
+    - 2.0.7-pre.6
+    - 2.0.7-pre.7
+    - 3.0.0-pre.2
+    - 3.0.0-pre.3
+    - 3.0.0-pre.4
+    - 4.0.0-pre.2
+    - 4.0.0-pre.3
+    - 4.0.0
+    - 4.0.1
+    - 4.1.0
+    verified: 
+  dependencies:
+  - name: com.unity.ugui
+    version: 1.0.0
+  - name: com.unity.services.core
+    version: 1.4.0
+  resolvedDependencies:
+  - name: com.unity.ugui
+    version: 1.0.0
+  - name: com.unity.modules.ui
+    version: 1.0.0
+  - name: com.unity.modules.imgui
+    version: 1.0.0
+  - name: com.unity.services.core
+    version: 1.4.0
+  - name: com.unity.modules.unitywebrequest
+    version: 1.0.0
+  - name: com.unity.nuget.newtonsoft-json
+    version: 3.0.2
+  - name: com.unity.modules.androidjni
+    version: 1.0.0
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hasRegistry: 1
+  hideInEditor: 1
+  entitlements:
+    isAllowed: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637889192380000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/operate-services-sdk.git
+    revision: dac564bca5dae194afa944a6b22849513d412ec2
+    path: 
+  unityLifecycle:
+    version: 
+    nextVersion: 2.0.7-pre.4
 - packageId: com.unity.mathematics@1.2.1
   testable: 0
   isDirectDependency: 0
@@ -3471,10 +3873,29 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
+    - 0.0.12-preview.2
+    - 0.0.12-preview.5
+    - 0.0.12-preview.8
+    - 0.0.12-preview.10
+    - 0.0.12-preview.11
+    - 0.0.12-preview.13
+    - 0.0.12-preview.17
+    - 0.0.12-preview.19
+    - 0.0.12-preview.20
+    - 1.0.0-preview.1
+    - 1.0.1
+    - 1.1.0-preview.1
+    - 1.1.0
     - 1.2.1
+    - 1.2.4
+    - 1.2.5
+    - 1.2.6
     compatible:
     - 1.2.1
-    verified: 1.2.1
+    - 1.2.4
+    - 1.2.5
+    - 1.2.6
+    verified: 1.2.6
   dependencies: []
   resolvedDependencies: []
   keywords:
@@ -3491,12 +3912,12 @@ m_ResolvedPackages:
   entitlements:
     isAllowed: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 0
+  datePublishedTicks: 637324062630000000
   documentationUrl: 
   hasRepository: 1
   repository:
     type: git
-    url: https://github.com/Unity-Technologies/Unity.Mathematics.git
+    url: git+https://github.com/Unity-Technologies/Unity.Mathematics.git
     revision: 71412d94b7a0b0fdbb3195a5e6559bf6a761e91a
     path: 
   unityLifecycle:
@@ -3523,7 +3944,42 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
+    - 1.0.9-preview.1
+    - 1.0.9-preview.2
+    - 1.0.10-preview
+    - 1.0.11-preview.1
+    - 1.1.0-preview.1
+    - 1.1.0-preview.2
+    - 1.2.0-preview.1
+    - 2.0.1
+    - 2.0.2
+    - 2.1.0
+    - 2.1.1
+    - 2.1.2
+    - 3.0.0
+    - 3.0.1
+    - 4.0.0
+    - 4.0.1
+    - 4.0.2
+    - 4.0.3
+    - 4.0.4
+    - 4.1.0
+    - 4.2.0
+    - 5.0.0-pre.1
+    - 5.0.0-pre.2
     - 5.0.0
+    - 6.0.0-pre.2
+    - 6.0.0-pre.3
+    - 6.0.0-pre.4
+    - 6.0.0
+    - 6.0.1
+    - 6.0.2
+    - 6.0.3
+    - 7.0.0-pre.3
+    - 7.0.0-pre.4
+    - 7.0.0
+    - 8.0.0-pre.1
+    - 8.0.0-pre.2
     compatible:
     - 5.0.0
     verified: 5.0.0
@@ -3559,7 +4015,7 @@ m_ResolvedPackages:
   entitlements:
     isAllowed: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 0
+  datePublishedTicks: 637526395060000000
   documentationUrl: 
   hasRepository: 1
   repository:
@@ -3591,10 +4047,32 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
+    - 1.0.0-preview.1
+    - 1.0.0-preview.4
+    - 2.0.1
+    - 2.0.2
+    - 2.0.3
+    - 2.0.4
+    - 2.0.5
+    - 2.0.6
+    - 2.1.0
+    - 2.1.1
+    - 3.0.0
+    - 3.0.1
+    - 3.0.2
+    - 4.0.0
+    - 4.0.1
+    - 4.0.2
+    - 5.0.0-pre.1
+    - 5.0.0-pre.2
     - 5.0.0
+    - 5.0.1
+    - 5.0.2
     compatible:
     - 5.0.0
-    verified: 5.0.0
+    - 5.0.1
+    - 5.0.2
+    verified: 5.0.2
   dependencies: []
   resolvedDependencies: []
   keywords:
@@ -3612,7 +4090,7 @@ m_ResolvedPackages:
   entitlements:
     isAllowed: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 0
+  datePublishedTicks: 637526399200000000
   documentationUrl: 
   hasRepository: 1
   repository:
@@ -3622,4 +4100,171 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 5.0.0
+    nextVersion: 
+- packageId: com.unity.services.core@1.4.0
+  testable: 0
+  isDirectDependency: 0
+  version: 1.4.0
+  source: 1
+  resolvedPath: D:\Projects\HamsterGame\HamsterGame\Library\PackageCache\com.unity.services.core@1.4.0
+  assetPath: Packages/com.unity.services.core
+  name: com.unity.services.core
+  displayName: Services Core
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: 'This package defines common components used by multiple Game Service
+    packages.
+
+    These are standardized and aim to unify the overall experience
+    of working with Game Services SDK.'
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 1.0.1
+    - 1.1.0-pre.7
+    - 1.1.0-pre.8
+    - 1.1.0-pre.9
+    - 1.1.0-pre.10
+    - 1.1.0-pre.11
+    - 1.1.0-pre.41
+    - 1.1.0-pre.69
+    - 1.2.0
+    - 1.3.1
+    - 1.3.2
+    - 1.4.0
+    - 1.4.1
+    - 1.4.2
+    compatible:
+    - 1.0.1
+    - 1.1.0-pre.7
+    - 1.1.0-pre.8
+    - 1.1.0-pre.9
+    - 1.1.0-pre.10
+    - 1.1.0-pre.11
+    - 1.1.0-pre.41
+    - 1.1.0-pre.69
+    - 1.2.0
+    - 1.3.1
+    - 1.3.2
+    - 1.4.0
+    - 1.4.1
+    - 1.4.2
+    verified: 1.0.1
+  dependencies:
+  - name: com.unity.modules.unitywebrequest
+    version: 1.0.0
+  - name: com.unity.nuget.newtonsoft-json
+    version: 3.0.2
+  - name: com.unity.modules.androidjni
+    version: 1.0.0
+  resolvedDependencies:
+  - name: com.unity.modules.unitywebrequest
+    version: 1.0.0
+  - name: com.unity.nuget.newtonsoft-json
+    version: 3.0.2
+  - name: com.unity.modules.androidjni
+    version: 1.0.0
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hasRegistry: 1
+  hideInEditor: 1
+  entitlements:
+    isAllowed: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637871962570000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/operate-services-sdk.git
+    revision: 92e281deb97a96f7b32464b6874de73a17c140ff
+    path: 
+  unityLifecycle:
+    version: 1.0.1
+    nextVersion: 1.1.0-pre.8
+- packageId: com.unity.nuget.newtonsoft-json@3.0.2
+  testable: 0
+  isDirectDependency: 0
+  version: 3.0.2
+  source: 1
+  resolvedPath: D:\Projects\HamsterGame\HamsterGame\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2
+  assetPath: Packages/com.unity.nuget.newtonsoft-json
+  name: com.unity.nuget.newtonsoft-json
+  displayName: Newtonsoft Json
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: 'Newtonsoft Json for use in Unity projects and Unity packages. Currently
+    synced to version 13.0.1.
+
+
+    This package is used for advanced json serialization
+    and deserialization. Most Unity users will be better suited using the existing
+    json tools built into Unity.
+
+    To avoid assembly clashes, please use this
+    package if you intend to use Newtonsoft Json.'
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 1.0.0-preview.2
+    - 1.0.0-preview.3
+    - 1.0.0-preview.4
+    - 1.0.1-preview.1
+    - 1.1.2
+    - 2.0.0-preview
+    - 2.0.0-preview.1
+    - 2.0.0-preview.2
+    - 2.0.0
+    - 2.0.1-preview.1
+    - 2.0.2
+    - 3.0.1
+    - 3.0.2
+    compatible:
+    - 2.0.0
+    - 2.0.1-preview.1
+    - 2.0.2
+    - 3.0.1
+    - 3.0.2
+    verified: 2.0.2
+  dependencies: []
+  resolvedDependencies: []
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hasRegistry: 1
+  hideInEditor: 1
+  entitlements:
+    isAllowed: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637846828220000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.nuget.newtonsoft-json.git
+    revision: 8f66870a71ad3f2cdd46330b5c482dfd138ffc64
+    path: 
+  unityLifecycle:
+    version: 2.0.0
     nextVersion: 

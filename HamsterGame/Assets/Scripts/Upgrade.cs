@@ -3,87 +3,116 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using static BuildingManager;
 
 public class Upgrade : MonoBehaviour
 {
-    private Main main;
-
-    private Clicker clicker;
-
-    [SerializeField] private int ID;
-
-    [SerializeField] private float price;
-
-    private int amount;
-
-    [SerializeField] private GameObject buttonText;
-
-    private TextMeshProUGUI buyText;
-
-    [SerializeField] private GameObject amountObj;
-
-    private TextMeshProUGUI amountText;
-
-    private void Start()
-    {
-        main = GameObject.Find("GameHandler").GetComponent<Main>();
-
-        clicker = GameObject.Find("ClickSprite").GetComponent<Clicker>();
-
-        amountText = amountObj.GetComponent<TextMeshProUGUI>();
-
-        buyText = buttonText.GetComponent<TextMeshProUGUI>();
-    }
-
     private void Update()
     {
-        if(main.GetCurrency() >= price)
+        if (buildingManager.cost[ID] <= buildingManager.currency.GetCurrency())
         {
-            gameObject.GetComponent<Button>().interactable = true;
+            buildingManager.buildingList[ID].gameObject.GetComponent<Button>().interactable = true;
         }
         else
         {
-            gameObject.GetComponent<Button>().interactable = false;
+            buildingManager.buildingList[ID].gameObject.GetComponent<Button>().interactable = false;
         }
-
-        buyText.text = price + " Watts";
-        amountText.text = amount.ToString();
     }
 
-    public void buyUpgrade()
+    public int ID;
+
+    public TMP_Text titleText;
+    public TMP_Text descriptionText;
+    public TMP_Text amountText;
+    public TMP_Text priceText;
+
+    public void UpdateUI()
     {
-        main.SetCurrency(-price);
-
-        addFunction();
-
-        amount += 1;
-
-        price += price * 0.2f;
-
-        price = Mathf.Round(price * 100f) / 100f;
+        amountText.text = $"{buildingManager.currentAmount[ID]}";
+        titleText.text = $"{buildingManager.buildingNames[ID]}";
+        descriptionText.text = $"{buildingManager.buildingDescription[ID]}";
+        priceText.text = $"{buildingManager.cost[ID]}" + " Watts";
     }
 
-    private void addFunction()
+    public void Buy()
     {
-        if(ID == 1)
+        if (buildingManager.cost[ID] <= buildingManager.currency.GetCurrency())
         {
-            clicker.SetClickValue(1f);
+            buildingManager.currency.SetCurrency(-buildingManager.cost[ID]);
+            buildingManager.currentAmount[ID] += 1;
+            buildingManager.cost[ID] += buildingManager.cost[ID] * 0.2f;
+            buildingManager.cost[ID] = Mathf.Round(buildingManager.cost[ID] * 100f) / 100f;
+            AddFunction();
+            buildingManager.UpdateAllBuildingUI();
         }
+    }
 
-        if (ID == 2)
+    private void AddFunction()
+    {
+        switch(ID)
         {
-             main.SetPassiveIncome(0.1f);
-        }
-
-        if (ID == 3)
-        {
-            main.SetPassiveIncome(1f);
-        }
-
-        if (ID == 4)
-        {
-            main.SetPassiveIncome(10f);
-        }
+            case 0:
+                buildingManager.currency.SetPassiveIncome(0.1f);
+                break;
+            case 1:
+                buildingManager.currency.SetPassiveIncome(0.5f);
+                break;
+            case 2:
+                buildingManager.currency.SetPassiveIncome(1f);
+                break;
+            case 3:
+                buildingManager.currency.SetPassiveIncome(5f);
+                break;
+            case 4:
+                buildingManager.currency.SetPassiveIncome(10f);
+                break;
+            case 5:
+                buildingManager.currency.SetPassiveIncome(50f);
+                break;
+            case 6:
+                buildingManager.currency.SetPassiveIncome(100f);
+                break;
+            case 7:
+                buildingManager.currency.SetPassiveIncome(500f);
+                break;
+            case 8:
+                buildingManager.currency.SetPassiveIncome(1000f);
+                break;
+            case 9:
+                buildingManager.currency.SetPassiveIncome(5000f);
+                break;
+            case 10:
+                buildingManager.currency.SetPassiveIncome(10000f);
+                break;
+            case 11:
+                buildingManager.currency.SetPassiveIncome(50000f);
+                break;
+            case 12:
+                buildingManager.currency.SetPassiveIncome(100000f);
+                break;
+            case 13:
+                buildingManager.currency.SetPassiveIncome(500000f);
+                break;
+            case 14:
+                buildingManager.currency.SetPassiveIncome(1000000f);
+                break;
+            case 15:
+                buildingManager.currency.SetPassiveIncome(5000000f);
+                break;
+            case 16:
+                buildingManager.currency.SetPassiveIncome(10000000f);
+                break;
+            case 17:
+                buildingManager.currency.SetPassiveIncome(50000000f);
+                break;
+            case 18:
+                buildingManager.currency.SetPassiveIncome(100000000f);
+                break;
+            case 19:
+                buildingManager.currency.SetPassiveIncome(500000000f);
+                break;
+            default:
+                break;
+        }; 
     }
 }
