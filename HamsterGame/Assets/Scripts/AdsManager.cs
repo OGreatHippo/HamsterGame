@@ -88,6 +88,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
             main.SetBool(false);
 
             rewardAnimation.SetBool("spawn", false);
+            rewardAnimation.SetBool("open", false);
         }
     }
 }

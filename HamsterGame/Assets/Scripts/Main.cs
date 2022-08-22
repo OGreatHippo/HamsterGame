@@ -12,15 +12,17 @@ public class Main : MonoBehaviour
     public Animator rewardAnimation;
     public GameObject canvas;
 
+    public TMP_Text adText;
+
     public Clicker clicker;
 
-    private bool xpBoostActive = false;
+    public bool xpBoostActive = false;
 
-    private bool currencyBoostActive = false;
+    public bool currencyBoostActive = false;
 
     public bool frenzyBoostActive = false;
 
-    private int advertType;
+    public int advertType;
 
     private bool adSpawned = false;
 
@@ -52,11 +54,11 @@ public class Main : MonoBehaviour
 
     public float currentFrenzyMultiplierTime;
 
-    public float frenzyMultiplierTime;
+    public float frenzyMultiplierTime = 10f;
 
-    public float currencyMultiplierTime;
+    public float currencyMultiplierTime = 3600f;
 
-    public float xpMultiplierTime;
+    public float xpMultiplierTime = 3600f;
 
     private float currentXpMultiplierTime;
 
@@ -70,7 +72,7 @@ public class Main : MonoBehaviour
 
     private TextMeshProUGUI talentText;
 
-    private int frenzyMultplier;
+    private int frenzyMultplier = 1;
 
     private int currencyTimer = 3600;
 
@@ -79,13 +81,7 @@ public class Main : MonoBehaviour
         InitializeObjects();
         UpdateUIValues();
 
-        //advertType = Random.Range(1, 1000);
-
-        //advertTime = Random.Range(120f, 180f);
-
-        advertType = 900;
-
-        advertTime = Random.Range(1f, 4f);
+        advertTime = Random.Range(120f, 180f);
     }
 
     private void Update()
@@ -93,6 +89,7 @@ public class Main : MonoBehaviour
         addIncome();
         levelUp();
         SpawnAdvertButton();
+        advertReward();
         Timers();
         MultiplyCurrency();
         MultiplyXP();
@@ -289,12 +286,12 @@ public class Main : MonoBehaviour
 
             if (xpBoostActive && advertType <= 1000 && advertType >= 788)
             {
-                advertType = 1;
+                advertType = 500;
             }
 
             else if (currencyBoostActive && advertType <= 787 && advertType >= 571)
             {
-                advertType = 1;
+                advertType = 500;
             }
 
             else if (frenzyBoostActive && advertType >= 1 && advertType <= 350)
@@ -310,6 +307,17 @@ public class Main : MonoBehaviour
         }
     }
 
+    public void OpenAdvertButton()
+    {
+        rewardAnimation.SetBool("open", true);
+    }
+
+    public void CloseAdvertButton()
+    {
+        rewardAnimation.SetBool("open", false);
+        rewardAnimation.SetBool("spawn", false);
+    }
+
     public void SetBool(bool result)
     {
         adSpawned = result;
@@ -317,22 +325,33 @@ public class Main : MonoBehaviour
 
     public void advertReward()
     {
-        if(advertType <= 1000 && advertType >= 788)
+        if(advertType <= 1000 && advertType >= 751)
         {
             currentXpMultiplierTime = xpMultiplierTime;
+
+            adText.text = "Double XP for: " + xpMultiplierTime;
+
             Debug.Log("double xp");
             MultiplyXP();
             UpdateUIValues();
         }
-        else if (advertType <= 787 && advertType >= 571)
+        else if (advertType <= 750 && advertType >= 501)
         {
             currentCurrencyMultiplierTime = currencyMultiplierTime;
+
+            adText.text = "Double Currency for: " + currencyMultiplierTime;
+
             Debug.Log("double moeny");
             MultiplyCurrency();
             UpdateUIValues();
         }
-        else if (advertType <= 570 && advertType >= 351)
+        else if (advertType <= 500 && advertType >= 251)
         {
+            float reward = 50;
+
+            reward += passiveIncome * currencyTimer;
+
+            adText.text = reward + "Watts"; 
             Debug.Log("Money");
             AddCurrency();
             UpdateUIValues();
@@ -340,6 +359,9 @@ public class Main : MonoBehaviour
         else
         {
             currentFrenzyMultiplierTime = frenzyMultiplierTime;
+
+            adText.text = frenzyMultplier + "x per Click for: " + frenzyMultiplierTime;
+
             Debug.Log("Frenzy");
             ClickFrenzy();
             UpdateUIValues();
