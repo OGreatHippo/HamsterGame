@@ -44,6 +44,8 @@ public class Main : MonoBehaviour
 
     private int currentXp;
 
+    private int xpIncrease = 1;
+
     private int xpMultiplier = 1;
 
     private float targetTime = 1f;
@@ -157,14 +159,25 @@ public class Main : MonoBehaviour
     {
         return passiveIncome;
     }
+
     public float SetPassiveIncome(float increase)
     {
         return passiveIncome += increase;
     }
 
+    public float SetPassiveIncomeMultiplier(float increase)
+    {
+        return passiveMultiplier += increase;
+    }
+
     public float SetMultiplierValue(float increase)
     {
         return passiveMultiplier += increase;
+    }
+
+    public int SetXPIncrease(int increase)
+    {
+        return xpIncrease += increase;
     }
 
     public void openUpgradeMenu()
@@ -189,7 +202,7 @@ public class Main : MonoBehaviour
 
     private void levelUp()
     {
-        if (currentXp == maxXp)
+        if (currentXp >= maxXp)
         {
             level += 1;
 
@@ -250,7 +263,7 @@ public class Main : MonoBehaviour
 
             UpdateUIValues();
 
-            currentXp += 1 * xpMultiplier;
+            currentXp += xpIncrease * xpMultiplier;
 
             xpBar.SetXP(currentXp);
 
@@ -384,16 +397,20 @@ public class Main : MonoBehaviour
 
     private void MultiplyCurrency()
     {
+        float tempMultiplierValue;
+
+        tempMultiplierValue = passiveMultiplier;
+
         if (currentCurrencyMultiplierTime > 0)
         {
             currencyBoostActive = true;
-            passiveMultiplier = 2f; 
+            passiveMultiplier *= 2f; 
         }
 
         else
         {
             currencyBoostActive = false;
-            passiveMultiplier = 1f;
+            passiveMultiplier = tempMultiplierValue;
         }     
     }
 

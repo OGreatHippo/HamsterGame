@@ -91,6 +91,24 @@ public class Talent : MonoBehaviour
             case 8:
                 talentTree.talentAmount.SetDoubleXPTime(600);
                 break;
+            case 9:
+                talentTree.talentAmount.SetPassiveIncomeMultiplier(0.1f);
+                break;
+            case 10:
+                talentTree.talentAmount.SetXPIncrease(1);
+                break;
+            case 11:
+                talentTree.talentAmount.SetPassiveIncomeMultiplier(1f);
+                break;
+            case 12:
+                talentTree.talentAmount.SetPassiveIncomeMultiplier(5f);
+                break;
+            case 13:
+                //increase offline income time
+                break;
+            case 14:
+                //increase offline income percentage
+                break;
             default:
                 break;
         };
