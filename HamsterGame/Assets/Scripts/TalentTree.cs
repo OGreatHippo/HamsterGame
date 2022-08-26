@@ -29,9 +29,9 @@ public class TalentTree : MonoBehaviour
     {
         talentAmount = GameObject.Find("GameHandler").GetComponent<Main>();
 
-        currentTalentLevels = new int[16];
-        talentCost = new[] { 1, 1, 1, 10, 1, 100, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
-        maxTalentLevels = new[] { 100, 50, 50, 10, 100, 10, 100, 50, 1, 100, 100, 50, 50, 1, 1, 1 };
+        currentTalentLevels = new int[17];
+        talentCost = new[] { 1, 1, 1, 10, 1, 100, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, };
+        maxTalentLevels = new[] { 100, 50, 50, 10, 100, 10, 100, 50, 1, 100, 100, 50, 50, 1, 1, 10, 1, };
 
         talentNames = new[] { /* ActiveTree */ "Happy Feet", "Merchandising", "Happier Feet", "Improved Merchandising", "Happiest Feet", "Happierest Feet", "More Moneyz", "Doubler Currency", "Doubler XP",
             /* PassiveTree */ "Improved Passive Income", "Experienced Hamsters", "Passive Income#", "Passive Income++", "Offline Time", "Offline Income", /* EconomyTree */ "Economy 1", "EConnector 1" };
@@ -89,7 +89,10 @@ public class TalentTree : MonoBehaviour
         talentList[10].connectedTalents = new[] { 11, 12 };
         talentList[11].connectedTalents = new[] { 13 };
         talentList[12].connectedTalents = new[] { 14 };
+
         //Economy Talent Connections
+
+
 
         UpdateAllTalentUI();
     }

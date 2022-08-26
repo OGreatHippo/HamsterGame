@@ -14,6 +14,7 @@ public class BuildingManager : MonoBehaviour
     public string[] buildingNames;
     public string[] buildingDescription;
     public int[] currentAmount;
+    public int[] percentageOfCost;
 
     public List<Upgrade> buildingList;
     public GameObject buildingHolder;
@@ -28,6 +29,7 @@ public class BuildingManager : MonoBehaviour
         currency = GameObject.Find("GameHandler").GetComponent<Main>();
 
         cost = new[] { 5f, 20f, 50f, 100f, 200f, 500f, 1000f, 2000f, 5000f, 10000f, 20000f, 50000f, 100000f, 200000f, 500000f, 1000000f, 2000000f, 5000000f, 10000000f, 100000000f };
+        percentageOfCost = new[] { 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 };
         currentAmount = new int[20];
 
         buildingNames = new[] { "Hamster Food", "Spare Hamsters", "Oiled Wheels", "Super Serum", "Upgrade 5", "Upgrade 6", "Upgrade 7", "Upgrade 8", "Upgrade 9", "Upgrade 10"
@@ -66,6 +68,15 @@ public class BuildingManager : MonoBehaviour
             buildingList[i].ID = i;
         }
 
+        UpdateAllBuildingUI();
+    }
+
+    public void ReducePrice(int percentage, int id)
+    {
+        Debug.Log(buildingManager.cost[id]);
+        buildingManager.percentageOfCost[id] -= percentage;
+        buildingManager.cost[id] = (buildingManager.cost[id] / 100) * buildingManager.percentageOfCost[id];
+        Debug.Log(buildingManager.cost[id]);
         UpdateAllBuildingUI();
     }
 

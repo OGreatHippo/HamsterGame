@@ -11,6 +11,10 @@ public class Talent : MonoBehaviour
 
     private Clicker clicker;
 
+    private OfflineProgress offlineProgress;
+
+    private BuildingManager buildingManager;
+
     public TMP_Text titleText;
     public TMP_Text descriptionText;
     public TMP_Text amountText;
@@ -23,6 +27,10 @@ public class Talent : MonoBehaviour
     private void Start()
     {
         clicker = GameObject.Find("ClickSprite").GetComponent<Clicker>();
+
+        offlineProgress = GameObject.Find("Canvas").GetComponent<OfflineProgress>();
+
+        buildingManager = GameObject.Find("Canvas").GetComponentInChildren<BuildingManager>();
     }
 
     public void UpdateUI()
@@ -104,10 +112,16 @@ public class Talent : MonoBehaviour
                 talentTree.talentAmount.SetPassiveIncomeMultiplier(5f);
                 break;
             case 13:
-                //increase offline income time
+                offlineProgress.SetTimeRemaining(10);
                 break;
             case 14:
-                //increase offline income percentage
+                offlineProgress.SetPercentageIncome(1);
+                break;
+            case 15:
+                buildingManager.ReducePrice(1, 0);
+                break;
+            case 16:
+                
                 break;
             default:
                 break;

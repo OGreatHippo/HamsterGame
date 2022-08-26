@@ -16,13 +16,13 @@ public class Main : MonoBehaviour
 
     public Clicker clicker;
 
-    public bool xpBoostActive = false;
+    private bool xpBoostActive = false;
 
-    public bool currencyBoostActive = false;
+    private bool currencyBoostActive = false;
 
-    public bool frenzyBoostActive = false;
+    private bool frenzyBoostActive = false;
 
-    public int advertType;
+    private int advertType;
 
     private bool adSpawned = false;
 
@@ -34,7 +34,7 @@ public class Main : MonoBehaviour
 
     [SerializeField] private GameObject talentTree;
 
-    private float currencyValue = 100000f;
+    private float currencyValue;
 
     private float passiveIncome;
 
@@ -54,19 +54,19 @@ public class Main : MonoBehaviour
 
     private float currentCurrencyMultiplierTime;
 
-    public float currentFrenzyMultiplierTime;
+    private float currentFrenzyMultiplierTime;
 
-    public float frenzyMultiplierTime = 10f;
+    private float frenzyMultiplierTime = 10f;
 
-    public float currencyMultiplierTime = 3600f;
+    private float currencyMultiplierTime = 3600f;
 
-    public float xpMultiplierTime = 3600f;
+    private float xpMultiplierTime = 3600f;
 
     private float currentXpMultiplierTime;
 
     private int maxXp = 300;
 
-    private int talentPoints = 100;
+    private int talentPoints;
 
     private Animator buildingAnim;
 
@@ -82,7 +82,7 @@ public class Main : MonoBehaviour
     {
         InitializeObjects();
         UpdateUIValues();
-
+        SpawnAdvertButton();
         advertTime = Random.Range(120f, 180f);
     }
 
@@ -91,11 +91,24 @@ public class Main : MonoBehaviour
         addIncome();
         levelUp();
         SpawnAdvertButton();
-        advertReward();
         Timers();
         MultiplyCurrency();
         MultiplyXP();
         ClickFrenzy();
+        BugTesting();
+    }
+
+    private void BugTesting()
+    {
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            currencyValue += 10000;
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            talentPoints += 10;
+        }
     }
 
     private void InitializeObjects()
@@ -297,6 +310,27 @@ public class Main : MonoBehaviour
         {
             advertType = Random.Range(1, 1000);
 
+            if (advertType <= 1000 && advertType >= 751)
+            {
+                adText.text = "Double XP for: " + xpMultiplierTime;
+            }
+            else if (advertType <= 750 && advertType >= 501)
+            {
+                adText.text = "Double Currency for: " + currencyMultiplierTime;
+            }
+            else if (advertType <= 500 && advertType >= 251)
+            {
+                float reward = 50;
+
+                reward += passiveIncome * currencyTimer;
+
+                adText.text = reward + "Watts";
+            }
+            else if (advertType <= 250 && advertType >= 1)
+            {
+                adText.text = frenzyMultplier + "x per Click for: " + frenzyMultiplierTime;
+            }
+
             if (xpBoostActive && advertType <= 1000 && advertType >= 788)
             {
                 advertType = 500;
@@ -344,7 +378,6 @@ public class Main : MonoBehaviour
 
             adText.text = "Double XP for: " + xpMultiplierTime;
 
-            Debug.Log("double xp");
             MultiplyXP();
             UpdateUIValues();
         }
@@ -354,7 +387,6 @@ public class Main : MonoBehaviour
 
             adText.text = "Double Currency for: " + currencyMultiplierTime;
 
-            Debug.Log("double moeny");
             MultiplyCurrency();
             UpdateUIValues();
         }
@@ -365,17 +397,15 @@ public class Main : MonoBehaviour
             reward += passiveIncome * currencyTimer;
 
             adText.text = reward + "Watts"; 
-            Debug.Log("Money");
             AddCurrency();
             UpdateUIValues();
         }
-        else
+        else if (advertType <= 250 && advertType >= 1)
         {
             currentFrenzyMultiplierTime = frenzyMultiplierTime;
 
             adText.text = frenzyMultplier + "x per Click for: " + frenzyMultiplierTime;
 
-            Debug.Log("Frenzy");
             ClickFrenzy();
             UpdateUIValues();
         }

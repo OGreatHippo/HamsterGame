@@ -11,6 +11,10 @@ public class OfflineProgress : MonoBehaviour
     public TextMeshProUGUI earningsText;
     public TextMeshProUGUI timeText;
 
+    private int timeRemaning = 360;
+
+    private int percentageIncome = 50;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +44,16 @@ public class OfflineProgress : MonoBehaviour
         //{
         //    earningsPanel.SetActive(false);
         //}
+    }
+
+    public int SetTimeRemaining(int increase)
+    {
+        return timeRemaning += increase;
+    }
+
+    public int SetPercentageIncome(int increase)
+    {
+        return percentageIncome += increase;
     }
 
     public void closeEarningsPanel()

@@ -171,18 +171,11 @@ MonoBehaviour:
   canvas: {fileID: 1108154439}
   adText: {fileID: 1621003217}
   clicker: {fileID: 764780685}
-  xpBoostActive: 0
-  currencyBoostActive: 0
-  frenzyBoostActive: 0
-  advertType: 5
   upgradeMenu: {fileID: 1529687537}
   buildingMenu: {fileID: 918666406}
   xpBar: {fileID: 66232232}
   talentTree: {fileID: 684320518}
   currentFrenzyMultiplierTime: 0
-  frenzyMultiplierTime: 10
-  currencyMultiplierTime: 3600
-  xpMultiplierTime: 3600
 --- !u!224 &53606197 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2277247070999576152, guid: cee5bf3a979678b448b8bd95e54b780c, type: 3}
@@ -3253,7 +3246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5000, y: 0}
+  m_AnchoredPosition: {x: -10000, y: 0}
   m_SizeDelta: {x: 800, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &684320520
