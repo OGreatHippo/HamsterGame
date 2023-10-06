@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class AdsManager : MonoBehaviour, IUnityAdsListener
+public class AdsManager : MonoBehaviour
 {
 #if UNITY_IOS
     private string gameID = "4880532";
@@ -24,33 +24,33 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
     {
         main = GameObject.Find("GameHandler").GetComponent<Main>();
         Advertisement.Initialize(gameID);
-        Advertisement.AddListener(this);
+        //Advertisement.AddListener(this);
         PlayBanner();
     }
 
     public void PlayRewardedAD()
     {
-        if(Advertisement.IsReady(rewardedID))
-        {
-            Advertisement.Show(rewardedID);
-        }
-        else
-        {
-            //Debug.Log("Rewarded Ad not ready");
-        }
+        //if(Advertisement.IsReady(rewardedID))
+        //{
+        //    Advertisement.Show(rewardedID);
+        //}
+        //else
+        //{
+        //    //Debug.Log("Rewarded Ad not ready");
+        //}
     }
 
     public void PlayBanner()
     {
-        if(Advertisement.IsReady(bannerID))
-        {
-            Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
-            Advertisement.Banner.Show(bannerID);
-        }    
-        else
-        {
-            StartCoroutine(RepeatPlayBanner());
-        }
+        //if(Advertisement.IsReady(bannerID))
+        //{
+        //    Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
+        //    Advertisement.Banner.Show(bannerID);
+        //}    
+        //else
+        //{
+        //    StartCoroutine(RepeatPlayBanner());
+        //}
     }
 
     public void HideBanner()
