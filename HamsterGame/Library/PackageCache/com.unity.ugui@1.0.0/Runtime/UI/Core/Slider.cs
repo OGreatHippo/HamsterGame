@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace UnityEngine.UI
 {
-    [AddComponentMenu("UI/Slider", 33)]
+    [AddComponentMenu("UI/Slider", 34)]
     [ExecuteAlways]
     [RequireComponent(typeof(RectTransform))]
     /// <summary>
@@ -473,6 +473,9 @@ namespace UnityEngine.UI
                 UISystemProfilerApi.AddMarker("Slider.value", this);
                 onValueChanged.Invoke(m_Value);
             }
+            // UUM-34170 Apparently, some properties on slider such as IsInteractable and Normalcolor Animation is broken.
+            // We need to call base here to render the animation on Scene
+            base.OnDidApplyAnimationProperties();
         }
 
         void UpdateCachedReferences()

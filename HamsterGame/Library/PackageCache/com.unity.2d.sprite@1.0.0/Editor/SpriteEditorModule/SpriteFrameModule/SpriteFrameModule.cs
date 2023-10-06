@@ -163,7 +163,7 @@ namespace UnityEditor.U2D.Sprites
                 {
                     while (outSprite == -1)
                     {
-                        outSprite = AddSprite(frame, alignment, pivot, GenerateSpriteNameWithIndex(nameIndex++), Vector4.zero, false);
+                        outSprite = AddSprite(frame, alignment, pivot, GenerateSpriteNameWithIndex(nameIndex++), Vector4.zero);
                     }
                 }
                 break;
@@ -253,13 +253,9 @@ namespace UnityEditor.U2D.Sprites
             return m_AlphaPixelCache[index];
         }
 
-        private int AddSprite(Rect rect, int alignment, Vector2 pivot, string name, Vector4 border, bool uniqueNameCheck = true)
+        private int AddSprite(Rect rect, int alignment, Vector2 pivot, string name, Vector4 border)
         {
-            var sed = spriteEditor.GetDataProvider<ISpriteEditorDataProvider>();
-            long internalID = AssetImporter.MakeLocalFileIDWithHash(spriteType.persistentTypeID, name, 0);
-            if (m_RectsCache.HasName(name))
-                return -1;
-            if (m_RectsCache.HasInternalID(internalID))
+            if (m_RectsCache.IsNameUsed(name))
                 return -1;
 
             SpriteRect spriteRect = new SpriteRect();
@@ -270,23 +266,7 @@ namespace UnityEditor.U2D.Sprites
             spriteRect.originalName = spriteRect.name;
             spriteRect.border = border;
 
-            spriteRect.internalID = internalID;
-            spriteRect.spriteID = GUID.CreateGUIDFromSInt64(internalID);
-
-            // check if someone is using the internal id, if so, we change it to us.
-            // Only TextureImporter needs this now.
-            var ai = sed.targetObject as TextureImporter;
-            var oldName = "";
-            if (ai != null && ai.GetNameFromInternalIDMap(internalID, ref oldName))
-            {
-                if (string.IsNullOrEmpty(oldName))
-                    return -1;
-                spriteRect.originalName = oldName;
-            }
-            else
-            {
-                spriteRect.m_RegisterInternalID = true;
-            }
+            spriteRect.spriteID = GUID.Generate();
 
             m_RectsCache.Add(spriteRect);
             spriteEditor.SetDataModified();
@@ -315,6 +295,8 @@ namespace UnityEditor.U2D.Sprites
             foreach (Rect frame in frames)
                 AddSprite(frame, alignment, pivot, slicingMethod, originalCount, ref index);
 
+            if (slicingMethod == AutoSlicingMethod.DeleteAll)
+                m_RectsCache.ClearUnusedFileID();
             selected = null;
             spriteEditor.SetDataModified();
             Repaint();
@@ -351,6 +333,8 @@ namespace UnityEditor.U2D.Sprites
             foreach (Rect frame in frames)
                 AddSprite(frame, alignment, pivot, slicingMethod, originalCount, ref index);
 
+            if (slicingMethod == AutoSlicingMethod.DeleteAll)
+                m_RectsCache.ClearUnusedFileID();
             selected = null;
             spriteEditor.SetDataModified();
             Repaint();
@@ -443,7 +427,8 @@ namespace UnityEditor.U2D.Sprites
                 outlineRect.outlines = outlines;
                 spriteRects[spriteIndex] = outlineRect;
             }
-
+            if (slicingMethod == AutoSlicingMethod.DeleteAll)
+                m_RectsCache.ClearUnusedFileID();
             selected = null;
             spriteEditor.SetDataModified();
             Repaint();
@@ -546,6 +531,24 @@ namespace UnityEditor.U2D.Sprites
                 selected = null;
                 spriteEditor.SetDataModified();
             }
+        }
+
+        public bool IsOnlyUsingDefaultNamedSpriteRects()
+        {
+            var onlyDefaultNames = true;
+            var names = m_RectsCache.spriteNames;
+            var defaultName = m_SpriteNameStringBuilder.ToString();
+
+            foreach (var name in names)
+            {
+                if (!name.Contains(defaultName))
+                {
+                    onlyDefaultNames = false;
+                    break;
+                }
+            }
+
+            return onlyDefaultNames;
         }
     }
 }
